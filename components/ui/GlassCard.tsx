@@ -11,20 +11,20 @@ interface GlassCardProps {
 const GlassCard: React.FC<GlassCardProps> = ({ children, className = "", onClick, hoverEffect = false }) => {
     return (
         <motion.div 
-            whileHover={hoverEffect ? { y: -10, boxShadow: "0 25px 50px -12px rgba(14, 165, 233, 0.25)" } : {}}
+            whileHover={hoverEffect ? { y: -10 } : {}}
             transition={{ duration: 0.3 }}
             onClick={onClick}
             className={`
                 relative overflow-hidden
-                bg-white/70 backdrop-blur-xl 
-                border border-white/40 
-                shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+                bg-white/70 dark:bg-slate-800/40 backdrop-blur-xl 
+                border border-white/40 dark:border-white/10
+                shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)]
                 rounded-[2rem] 
                 ${onClick ? 'cursor-pointer' : ''}
                 ${className}
             `}
         >
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/40 to-transparent dark:from-white/5 dark:to-transparent pointer-events-none" />
             <div className="relative z-10">
                 {children}
             </div>

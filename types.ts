@@ -1,26 +1,43 @@
 import { LucideIcon } from "lucide-react";
 
-export interface ServiceData {
+export type Language = 'tr' | 'de';
+
+export interface ServiceConfig {
     id: string;
+    icon: LucideIcon;
+    color: string;
+}
+
+// Data from translation file
+export interface ServiceContent {
     title: string;
     shortDesc: string;
     fullDesc: string;
-    icon: LucideIcon;
-    color: string; // Tailwind color class prefix (e.g. "blue", "orange")
     list: string[];
 }
 
-export interface JobData {
+export interface JobConfig {
     id: string;
-    category: string;
     categoryColor: string;
-    title: string;
-    subtitle: string;
-    salary: string;
     trend: 'up' | 'urgent';
 }
 
-export interface Stat {
+export interface JobContent {
+    category: string;
+    title: string;
+    subtitle: string;
+    salaryLabel: string;
+    salary: string;
+    trendLabel: string;
+}
+
+export interface StepConfig {
+    id: string;
+    color: string;
+}
+
+export interface StatConfig {
+    id: string;
     value: string;
     label: string;
 }
