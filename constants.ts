@@ -10,9 +10,19 @@ import { ServiceConfig, JobConfig, StepConfig, StatConfig } from "./types";
 
 export const SERVICES_CONFIG: ServiceConfig[] = [
     {
+        id: 'fasttrack',
+        icon: Zap,
+        color: "indigo"
+    },
+    {
         id: 'job',
         icon: Briefcase,
         color: "blue"
+    },
+    {
+        id: 'equivalence',
+        icon: FileCheck,
+        color: "teal"
     },
     {
         id: 'student',
@@ -28,16 +38,6 @@ export const SERVICES_CONFIG: ServiceConfig[] = [
         id: 'tourist',
         icon: Plane,
         color: "purple"
-    },
-    {
-        id: 'equivalence',
-        icon: FileCheck,
-        color: "teal"
-    },
-    {
-        id: 'fasttrack',
-        icon: Zap,
-        color: "indigo"
     }
 ];
 

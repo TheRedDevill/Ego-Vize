@@ -42,13 +42,27 @@ const Contact: React.FC = () => {
             isValid = false;
         }
 
-        // Telefon Kontrolü (0 ile başlayan 11 hane)
-        // Basit regex kontrolü, ülke kodlarına göre değişebilir ama şimdilik basic tutuyoruz
-        const cleanPhone = formData.phone.replace(/[^0-9]/g, '');
+        // Telefon Kontrolü (TR ve DE Strict Validation)
+        // Boşlukları, parantezleri ve tireleri kaldır
+        const cleanPhone = formData.phone.replace(/[\s\-()]/g, '');
+        
+        // TR Regex: +905..., 05... veya 5... (Toplam 10 hane + opsiyonel önekler)
+        // ^(\+90|0)? : Opsiyonel +90 veya 0 ile başlar
+        // 5 : 5 ile devam eder (Mobil hatlar için)
+        // \d{9}$ : 9 rakam daha gelir.
+        const trRegex = /^(\+90|0)?5\d{9}$/;
+
+        // DE Regex: +49... veya 0... (Alman numaraları alan kodu dahil genelde 10-12 hanedir)
+        // ^(\+49|0) : +49 veya 0 ile başlar
+        // [1-9] : Alan kodu 0 ile başlamaz (Örn: 0151... -> 151...)
+        // \d{8,12}$ : Ardından 8 ila 12 hane gelir.
+        const deRegex = /^(\+49|0)[1-9]\d{8,12}$/;
+
         if (!formData.phone.trim()) {
             newErrors.phone = t.contact.form.errors.required;
             isValid = false;
-        } else if (cleanPhone.length < 10) {
+        } else if (!trRegex.test(cleanPhone) && !deRegex.test(cleanPhone)) {
+            // Eğer ne TR ne de DE formatına uyuyorsa hata ver
             newErrors.phone = t.contact.form.errors.phoneInvalid;
             isValid = false;
         }
@@ -188,7 +202,7 @@ const Contact: React.FC = () => {
                                         value={formData.phone}
                                         onChange={handleChange}
                                         className={`w-full bg-slate-50 dark:bg-slate-900/50 border rounded-xl px-4 py-3.5 text-slate-900 dark:text-white focus:outline-none focus:ring-2 transition-all ${errors.phone ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 dark:border-slate-700 focus:ring-brand-500/20 focus:border-brand-500'}`}
-                                        placeholder="+90 ..." 
+                                        placeholder="+90 ... / +49 ..." 
                                     />
                                     {errors.phone && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/> {errors.phone}</p>}
                                 </div>

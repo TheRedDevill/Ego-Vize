@@ -141,7 +141,7 @@ export const translations = {
                 errors: {
                     required: 'Bu alan zorunludur.',
                     nameLength: 'Lütfen tam adınızı giriniz.',
-                    phoneInvalid: 'Geçersiz telefon numarası.',
+                    phoneInvalid: 'Geçersiz TR (+90) veya DE (+49) numarası.',
                     messageLength: 'Mesajınız çok kısa.'
                 },
                 options: {
@@ -299,7 +299,7 @@ export const translations = {
                 errors: {
                     required: 'Dieses Feld ist erforderlich.',
                     nameLength: 'Bitte geben Sie Ihren vollständigen Namen ein.',
-                    phoneInvalid: 'Ungültige Telefonnummer.',
+                    phoneInvalid: 'Ungültige TR (+90) oder DE (+49) Nummer.',
                     messageLength: 'Ihre Nachricht ist zu kurz.'
                 },
                 options: {
