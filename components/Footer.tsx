@@ -37,10 +37,38 @@ const Footer: React.FC = () => {
                 <div className="border-t border-slate-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400 dark:text-slate-500 font-medium">
                     <p>{t.footer.copyright}</p>
                     <div className="flex gap-4">
-                        <a href="#" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"><Instagram size={20} /></a>
-                        <a href="#" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"><Facebook size={20} /></a>
-                        <a href="#" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"><Youtube size={20} /></a>
-                        <a href="#" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"><TiktokIcon size={20} /></a>
+                        <a 
+                            href="https://www.instagram.com/egovize/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                        >
+                            <Instagram size={20} />
+                        </a>
+                        <a 
+                            href="https://www.facebook.com/people/EgoVize/61574641852026/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                        >
+                            <Facebook size={20} />
+                        </a>
+                        <a 
+                            href="https://www.youtube.com/channel/UC7esrUcxUvo4fxzwQS170QA" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                        >
+                            <Youtube size={20} />
+                        </a>
+                        <a 
+                            href="https://www.tiktok.com/@egovize" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                        >
+                            <TiktokIcon size={20} />
+                        </a>
                     </div>
                 </div>
             </div>
